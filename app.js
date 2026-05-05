@@ -11,6 +11,8 @@ const state = {
   examAnswers: {},
 };
 
+const apiBaseUrl = String(window.ONJOB_CONFIG?.apiBaseUrl || "").replace(/\/$/, "");
+
 // ---- DOM refs ----
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => document.querySelectorAll(sel);
@@ -51,8 +53,8 @@ function formatBytes(bytes = 0) {
 }
 
 async function api(path, options = {}) {
-  const isAbsolute = /^https?:\/\//i.test(path);
-  const requestUrl = new URL(path, isAbsolute ? undefined : window.location.origin);
+  const requestBase = apiBaseUrl || window.location.origin;
+  const requestUrl = new URL(path, requestBase);
   if (state.projectId && requestUrl.pathname.startsWith("/api/")) {
     requestUrl.searchParams.set("projectId", state.projectId);
   }
@@ -62,7 +64,7 @@ async function api(path, options = {}) {
     headers.set("X-Project-Id", state.projectId);
   }
 
-  const response = await fetch(isAbsolute ? path : requestUrl.toString(), {
+  const response = await fetch(requestUrl.toString(), {
     ...options,
     headers,
   });

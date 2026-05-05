@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: onjob-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 10000

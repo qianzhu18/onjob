@@ -64,11 +64,21 @@ npm start
 
 这个项目有 Node.js 文件上传和运行时状态，不适合只靠纯静态托管完成整套服务。
 
-### Netlify 使用方式
+### 前后端分离配置
 
-Netlify 适合托管前端页面。
+前端通过 [config.js](/Users/mac/qianzhu Vault/project/新手上岗/config.js) 指定后端地址。
 
-如果前后端分开部署，建议把前端里的 `/api/*` 请求通过 Netlify rewrite 或代理转发到后端域名。
+本地开发可保持：
+
+```js
+apiBaseUrl: ""
+```
+
+公网部署时改成你的 Render 地址，例如：
+
+```js
+apiBaseUrl: "https://onjob-api.onrender.com"
+```
 
 ### 后端环境变量
 
@@ -92,3 +102,9 @@ curl https://your-api-domain/api/health
 ```
 
 返回 `ok: true` 说明服务已启动。
+
+## 部署步骤
+
+完整步骤见：
+
+- [Render + Netlify 部署指南](/Users/mac/qianzhu Vault/project/新手上岗/doc/Render_Netlify_部署指南.md)
