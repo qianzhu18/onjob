@@ -72,6 +72,7 @@
 如果前端和后端分域部署，建议再加：
 
 - `CORS_ALLOW_ORIGIN=*`
+- `DATA_DIR=/opt/render/project/src/storage`
 
 如果你后面只想允许 Netlify 域名访问，再改成你的正式前端域名。
 
@@ -90,6 +91,22 @@ https://onjob-api.onrender.com/api/health
 ```
 
 如果看到 `ok: true`，说明后端已经成功上线。
+
+### 2.7 关于文件和缓存持久化
+
+当前代码支持通过 `DATA_DIR` 指定运行时存储目录。
+
+这很重要，因为：
+
+- 上传文件
+- `.cache`
+- 项目缓存
+
+都会写到这个目录里。
+
+如果你只是做第一轮 MVP 试玩，可以先不挂持久化磁盘。
+
+但如果你希望测试过程中数据不要因为服务重启而丢失，建议后面升级为 Render 付费实例，并挂载 persistent disk，再把挂载路径配置给 `DATA_DIR`。
 
 ---
 

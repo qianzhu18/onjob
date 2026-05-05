@@ -92,6 +92,7 @@ apiBaseUrl: "https://onjob-api.onrender.com"
 - `MIMO_MODEL`
 - `MIMO_ACCESS_MODE`
 - `MIMO_API_COMPAT_MODE`
+- `DATA_DIR`
 
 ## 健康检查
 

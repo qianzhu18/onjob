@@ -17,9 +17,10 @@ dotenv.config({ path: path.join(process.cwd(), ".env") });
 const app = express();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 20 * 1024 * 1024 } });
 const PORT = Number(process.env.PORT || 4173);
+const dataRootDir = path.resolve(process.env.DATA_DIR || process.cwd());
 
-const uploadsDir = path.join(process.cwd(), "uploads");
-const cacheDir = path.join(process.cwd(), ".cache");
+const uploadsDir = path.join(dataRootDir, "uploads");
+const cacheDir = path.join(dataRootDir, ".cache");
 const parsedCacheDir = path.join(cacheDir, "parsed-docs");
 const projectCacheDir = path.join(cacheDir, "projects");
 const latestProjectPath = path.join(cacheDir, "latest-project.json");
