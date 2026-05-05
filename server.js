@@ -10,7 +10,7 @@ import AdmZip from "adm-zip";
 import dotenv from "dotenv";
 
 const require = createRequire(import.meta.url);
-const pdfParse = require("pdf-parse");
+const pdfParseModule = require("pdf-parse");
 
 dotenv.config({ path: path.join(process.cwd(), ".env") });
 
@@ -647,22 +647,27 @@ async function maybeAskMimo(project, message) {
 }
 
 async function parsePdf(buffer) {
-  if (typeof pdfParse === "function") {
-    const payload = await pdfParse(buffer);
-    return { text: payload.text || "", structure: "document" };
-  }
+  // pdf-parse v2 (2.x) exports { PDFParse } as a class
+  const PDFParseClass = pdfParseModule?.PDFParse || pdfParseModule?.default?.PDFParse;
 
-  if (pdfParse?.PDFParse) {
-    const parser = new pdfParse.PDFParse({ data: buffer });
+  if (PDFParseClass) {
+    const parser = new PDFParseClass({ data: buffer });
     try {
-      const payload = await parser.getText();
-      return { text: payload?.text || "", structure: "document" };
+      const result = await parser.getText();
+      // TextResult has { text: string, pages: Array<{ num, text }>, total: number }
+      return { text: result?.text || "", structure: "document" };
     } finally {
       await parser.destroy().catch(() => undefined);
     }
   }
 
-  throw new Error("Unsupported pdf-parse export shape");
+  // Fallback: pdf-parse v1 exports a plain function
+  if (typeof pdfParseModule === "function") {
+    const payload = await pdfParseModule(buffer);
+    return { text: payload.text || "", structure: "document" };
+  }
+
+  throw new Error("Unsupported pdf-parse export shape: " + typeof pdfParseModule);
 }
 
 async function parseDocx(buffer) {
