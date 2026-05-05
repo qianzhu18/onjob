@@ -5,6 +5,7 @@
 
 const state = {
   project: null,
+  projectId: localStorage.getItem("onjob_project_id") || "",
   selectedFiles: [],
   quizAnswers: {},
   examAnswers: {},
@@ -50,12 +51,36 @@ function formatBytes(bytes = 0) {
 }
 
 async function api(path, options = {}) {
-  const response = await fetch(path, options);
+  const isAbsolute = /^https?:\/\//i.test(path);
+  const requestUrl = new URL(path, isAbsolute ? undefined : window.location.origin);
+  if (state.projectId && requestUrl.pathname.startsWith("/api/")) {
+    requestUrl.searchParams.set("projectId", state.projectId);
+  }
+
+  const headers = new Headers(options.headers || {});
+  if (state.projectId && requestUrl.pathname.startsWith("/api/")) {
+    headers.set("X-Project-Id", state.projectId);
+  }
+
+  const response = await fetch(isAbsolute ? path : requestUrl.toString(), {
+    ...options,
+    headers,
+  });
   if (!response.ok) {
     const payload = await response.json().catch(() => ({ error: "请求失败" }));
     throw new Error(payload.error || "请求失败");
   }
   return response.json();
+}
+
+function rememberProject(project) {
+  state.project = project;
+  state.projectId = project?.projectId || "";
+  if (state.projectId) {
+    localStorage.setItem("onjob_project_id", state.projectId);
+  } else {
+    localStorage.removeItem("onjob_project_id");
+  }
 }
 
 // ---- Panel switching ----
@@ -155,7 +180,7 @@ async function uploadFiles() {
 
   try {
     const payload = await api("/api/upload", { method: "POST", body: formData });
-    state.project = payload.project;
+    rememberProject(payload.project);
 
     // Mark all steps done
     steps.forEach((id) => {
@@ -245,7 +270,7 @@ async function sendChat(message) {
     const payload = await api("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, projectId: state.projectId }),
     });
     addBubble("assistant", payload.answer, payload.meta || "");
   } catch (error) {
@@ -337,7 +362,7 @@ async function submitAssessment(kind) {
     const payload = await api(`/api/${kind}/submit`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answers }),
+      body: JSON.stringify({ answers, projectId: state.projectId }),
     });
 
     if (kind === "quiz") {
@@ -381,7 +406,7 @@ async function loadState() {
   try {
     const payload = await api("/api/project");
     if (payload.project?.ready) {
-      state.project = payload.project;
+      rememberProject(payload.project);
       // If project is already processed, show results
       renderResults();
     }
