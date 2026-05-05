@@ -1,0 +1,5 @@
+node_modules/
+uploads/
+.playwright-mcp/
+.env
+.DS_Store

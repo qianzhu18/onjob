@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新人上岗 AI 培训 - 面向 To B 团队的智能培训上岗平台</title>
+  <meta name="description" content="把新人培训资料、AI 学习、小测考试和上岗放行整成一条可落地的闭环。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="nav-inner container">
+      <a href="#" class="nav-brand">
+        <span class="brand-icon">AI</span>
+        <span class="brand-text">新人上岗</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works">工作原理</a>
+        <a href="#features">核心能力</a>
+        <a href="#flow">使用流程</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#upload-section" class="btn btn-primary" id="nav-cta">开始使用</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="hero-badge">面向 To B 服务型团队</span>
+        <h1 class="hero-title">
+          把新人培训、学习检验和上岗放行，压成一条真正能跑的业务链路
+        </h1>
+        <p class="hero-desc">
+          面向客服、销售支持、交付运营等团队。管理员上传培训资料，系统自动沉淀知识、生成学习章节和测评内容，员工完成学习与考试，主管据此判断是否放行上岗。
+        </p>
+        <div class="hero-cta">
+          <a href="#upload-section" class="btn btn-primary btn-lg">立即开始使用</a>
+          <a href="#how-it-works" class="btn btn-outline btn-lg">了解工作原理</a>
+        </div>
+        <div class="hero-trust">
+          <span>适用于客服 SOP 培训</span>
+          <span class="dot"></span>
+          <span>交付团队标准化上岗</span>
+          <span class="dot"></span>
+          <span>销售支持知识培训</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="./hero-illustration.png" alt="AI 培训平台示意图" class="hero-image" />
+      </div>
+    </div>
+    <div class="hero-stripe"></div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">工作原理</span>
+        <h2 class="section-title">三个角色，一条闭环</h2>
+        <p class="section-desc">不是再做一个会说话的页面，而是把培训交付这件事做成业务系统。</p>
+      </div>
+
+      <div class="steps-row">
+        <div class="step-item">
+          <div class="step-number">01</div>
+          <h3>管理员上传资料</h3>
+          <p>上传 PDF、Word、PPT、Excel 等培训资料，系统自动解析文本、切分知识、生成学习章节与测评素材。</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-item">
+          <div class="step-number">02</div>
+          <h3>员工学习并考试</h3>
+          <p>阅读 AI 综述，基于资料对话学习，完成阶段小测和综合考试，不再反复跳工具。</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-item">
+          <div class="step-number">03</div>
+          <h3>主管按结果放行</h3>
+          <p>看到过程、分数和薄弱点，把放行决策从经验改成数据，再决定谁可以直接上岗。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section-alt" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">核心能力</span>
+        <h2 class="section-title">一个商业化产品，至少要把这些能力说清楚</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>真实上传处理</h3>
+          <p>文件不是本地假动作，资料会真正进入后端并被解析处理。</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>自动知识沉淀</h3>
+          <p>把长资料提炼成章节、重点和问答可用的知识片段。</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>AI 对话学习</h3>
+          <p>员工围绕资料发问，不靠模糊记忆去碰业务场景。</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3>阶段小测 + 综合考试</h3>
+          <p>学完立即检查，把最终上岗判断落在明确分数和知识掌握结果上。</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3>主管视角看板</h3>
+          <p>一眼看到进度、测评分和是否建议放行。</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>数据驱动放行</h3>
+          <p>把"感觉差不多"变成"证据够不够"，降低上岗失误风险。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload Section (The Main CTA Flow) -->
+  <section class="section" id="upload-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">开始使用</span>
+        <h2 class="section-title">上传培训资料，即刻开始</h2>
+        <p class="section-desc">支持 PDF、Word、PPT、Excel 等格式。上传后系统自动解析、建库、生成学习与测评内容。</p>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-zone" id="upload-zone">
+        <div class="upload-content">
+          <div class="upload-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <h3>拖拽文件到这里，或点击选择</h3>
+          <p>支持 pdf / docx / pptx / xlsx / txt / md / csv / json / html</p>
+          <input type="file" id="file-input" multiple accept=".pdf,.docx,.pptx,.xlsx,.txt,.md,.csv,.json,.html,.htm" />
+          <button class="btn btn-primary btn-lg" id="select-files-btn">选择文件</button>
+        </div>
+      </div>
+
+      <!-- Selected Files -->
+      <div class="selected-files" id="selected-files" style="display:none">
+        <div class="selected-header">
+          <h3 id="file-count-label">已选择 0 个文件</h3>
+          <div class="selected-actions">
+            <button class="btn btn-primary" id="upload-btn">上传并处理</button>
+            <button class="btn btn-outline" id="clear-btn">清空</button>
+          </div>
+        </div>
+        <ul class="file-list" id="file-list"></ul>
+      </div>
+
+      <!-- Processing Status -->
+      <div class="processing-status" id="processing-status" style="display:none">
+        <h3 id="processing-title">正在处理...</h3>
+        <div class="pipeline">
+          <div class="pipeline-step" id="step-parse">
+            <span class="pipeline-dot"></span>
+            <span>文件解析</span>
+          </div>
+          <div class="pipeline-line"></div>
+          <div class="pipeline-step" id="step-chunk">
+            <span class="pipeline-dot"></span>
+            <span>知识切分</span>
+          </div>
+          <div class="pipeline-line"></div>
+          <div class="pipeline-step" id="step-material">
+            <span class="pipeline-dot"></span>
+            <span>素材生成</span>
+          </div>
+          <div class="pipeline-line"></div>
+          <div class="pipeline-step" id="step-done">
+            <span class="pipeline-dot"></span>
+            <span>完成</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="results-panel" id="results-panel" style="display:none">
+        <div class="results-header">
+          <div>
+            <h3>处理完成</h3>
+            <p id="results-summary"></p>
+          </div>
+          <div class="results-actions">
+            <button class="btn btn-primary" id="go-learn-btn">进入学习模式</button>
+            <button class="btn btn-outline" id="go-quiz-btn">开始小测</button>
+            <button class="btn btn-outline" id="go-exam-btn">综合考试</button>
+          </div>
+        </div>
+
+        <div class="results-stats" id="results-stats"></div>
+        <div class="results-chapters" id="results-chapters"></div>
+      </div>
+
+      <!-- Chat / Learn Panel -->
+      <div class="chat-panel" id="chat-panel" style="display:none">
+        <div class="chat-header">
+          <h3>AI 对话学习</h3>
+          <span class="chat-hint">基于已上传的培训资料回答</span>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <form class="chat-input-row" id="chat-form">
+          <input type="text" id="chat-input" placeholder="例如：客户要求退款时，我第一步该做什么？" />
+          <button class="btn btn-primary" type="submit">提问</button>
+        </form>
+        <div class="chat-suggestions">
+          <button class="suggestion-chip" data-q="请总结这套资料里最重要的 3 条规则">总结最重要的 3 条规则</button>
+          <button class="suggestion-chip" data-q="员工最容易在哪个流程节点出错">最容易出错的流程节点</button>
+          <button class="suggestion-chip" data-q="这个岗位什么时候必须升级给主管">什么时候升级给主管</button>
+        </div>
+      </div>
+
+      <!-- Quiz Panel -->
+      <div class="quiz-panel" id="quiz-panel" style="display:none">
+        <div class="quiz-header">
+          <h3>阶段小测</h3>
+          <span class="quiz-hint">学完立即测，及时纠偏</span>
+        </div>
+        <div class="quiz-questions" id="quiz-questions"></div>
+        <div class="quiz-actions">
+          <button class="btn btn-primary" id="submit-quiz-btn">提交小测</button>
+          <button class="btn btn-outline" id="reset-quiz-btn">重新作答</button>
+        </div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+      </div>
+
+      <!-- Exam Panel -->
+      <div class="exam-panel" id="exam-panel" style="display:none">
+        <div class="exam-header">
+          <h3>综合考试</h3>
+          <div class="exam-warning">考试阶段不开启 AI 辅助，用于判断员工是否具备上岗所需的基础理解能力。</div>
+        </div>
+        <div class="exam-questions" id="exam-questions"></div>
+        <div class="exam-actions">
+          <button class="btn btn-primary" id="submit-exam-btn">提交考试</button>
+          <button class="btn btn-outline" id="reset-exam-btn">重置答案</button>
+        </div>
+        <div class="exam-result" id="exam-result"></div>
+      </div>
+
+      <!-- Dashboard Panel -->
+      <div class="dashboard-panel" id="dashboard-panel" style="display:none">
+        <div class="dashboard-header">
+          <h3>主管看板</h3>
+          <span class="dashboard-hint">一眼看到进度、测评分和是否建议放行</span>
+        </div>
+        <div class="dashboard-stats" id="dashboard-stats"></div>
+        <div class="dashboard-table" id="dashboard-table"></div>
+        <div class="dashboard-insights" id="dashboard-insights"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="section section-alt" id="flow">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">结果证明</span>
+        <h2 class="section-title">一个可卖的 To B 产品，最后还要回到客户能得到什么</h2>
+      </div>
+
+      <div class="proof-row">
+        <div class="proof-item">
+          <h3>更快搭起培训体系</h3>
+          <p>拿现有 SOP、制度说明、业务规则就能快速起一个培训闭环。</p>
+        </div>
+        <div class="proof-item">
+          <h3>更一致的新人质量</h3>
+          <p>不同主管、不同批次员工，都用统一学习和考试逻辑进入岗位。</p>
+        </div>
+        <div class="proof-item">
+          <h3>更清晰的放行依据</h3>
+          <p>把"感觉差不多"变成"证据够不够"，降低上岗失误风险。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section final-cta-section">
+    <div class="container">
+      <div class="final-cta">
+        <h2>开始使用新人上岗 AI 培训</h2>
+        <p>上传培训资料，系统自动建库、生成学习内容和测评，帮助团队更快、更稳地让新人独立上岗。</p>
+        <a href="#upload-section" class="btn btn-primary btn-lg">立即开始</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="brand-icon">AI</span>
+          <span>新人上岗 AI 培训</span>
+        </div>
+        <p class="footer-copy">&copy; 2025 新人上岗 AI 培训. 面向服务型团队的上岗闭环平台.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
