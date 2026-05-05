@@ -647,8 +647,22 @@ async function maybeAskMimo(project, message) {
 }
 
 async function parsePdf(buffer) {
-  const payload = await pdfParse(buffer);
-  return { text: payload.text || "", structure: "document" };
+  if (typeof pdfParse === "function") {
+    const payload = await pdfParse(buffer);
+    return { text: payload.text || "", structure: "document" };
+  }
+
+  if (pdfParse?.PDFParse) {
+    const parser = new pdfParse.PDFParse({ data: buffer });
+    try {
+      const payload = await parser.getText();
+      return { text: payload?.text || "", structure: "document" };
+    } finally {
+      await parser.destroy().catch(() => undefined);
+    }
+  }
+
+  throw new Error("Unsupported pdf-parse export shape");
 }
 
 async function parseDocx(buffer) {
